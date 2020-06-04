@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from "react";
+import newsCall from "../api/newsCall";
 import newsCard from "./newsCard";
 import me from "../me.jpg";
-import axios from "axios";
 
 function HomeContent() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/router/")
-      .then((res) => {
-        console.log(res);
-        setNews(res.data);
-        console.log("set news", news);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    newsCall(setNews(props.res.data));
     console.log(news);
   }, []);
 
