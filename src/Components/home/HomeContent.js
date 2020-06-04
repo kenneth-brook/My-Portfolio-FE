@@ -1,38 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import newsCard from "./newsCard";
 import me from "../me.jpg";
+import axios from "axios";
 
 function HomeContent() {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/router/")
+      .then((res) => {
+        console.log(res);
+        setNews(res.data);
+        console.log("set news", news);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(news);
+  }, []);
+
   return (
     <div className="homeContBG">
       <div className="contWrap">
         <img src={me} alt="me" />
         <div className="textWrap">
-          <p>
-            Lorizzle ipsum dolor crazy amizzle, consectetuer adipiscing fizzle.
-            Nullizzle sapien velizzle, gizzle volutpizzle, boom shackalack
-            quizzle, gravida vizzle, arcu. Pellentesque mofo phat. Sizzle
-            erizzle. Sheezy sizzle dolizzle dapibus turpis tempizzle tempor.
-            Maurizzle pellentesque nibh izzle doggy. We gonna chung izzle
-            shizzlin dizzle. Pellentesque eleifend rhoncizzle nisi. In hizzle
-            habitasse you son of a bizzle dictumst. Boom shackalack dapibus.
-            Curabitizzle tellus urna, bizzle cool, dawg ac, eleifend vitae,
-            nunc. Bizzle suscipizzle. Integer semper velit sed purizzle.
-          </p>
-
-          <p>
-            Praesent non its fo rizzle boom shackalack maurizzle posuere
-            bibendizzle.Aliquizzle pizzle yo lectizzle.Fizzle break it down mofo
-            et sure sodalizzle bow wow wow.Aliquizzle lobortizzle, maurizzle
-            vitae dapibizzle my
-          </p>
-
-          <p>
-            Duis izzle bling bling.Fusce crackalackin ligula, dignissim sizzle
-            fo shizzle, fringilla eget, sollicitudizzle nec, tortizzle.Dope a
-            nisi.Bow wow wow break yo neck, yall bizzle risus.The bizzle
-            erat.Mammasay mammasa mamma oo sa aliquet pizzle turpis.break yo
-            neck, yall.
-          </p>
+          {news.map((item) => {
+            return (
+              <newsCard
+                key={item.id}
+                title={item.title}
+                date={item.created}
+                content={item.content}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
