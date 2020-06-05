@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
-import newsCall from "../api/newsCall";
-import newsCard from "./newsCard";
+import axios from "axios";
+import NewsCard from "./NewsCard";
 import me from "../me.jpg";
 
 function HomeContent() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    newsCall(setNews(props.res.data));
-    console.log(news);
+    axios.get("http://localhost:5000/router/").then((res) => {
+      setNews(res.data.frontPosts);
+      console.log(res.data);
+    });
   }, []);
+
+  console.log("from state", news);
 
   return (
     <div className="homeContBG">
@@ -18,11 +22,11 @@ function HomeContent() {
         <div className="textWrap">
           {news.map((item) => {
             return (
-              <newsCard
+              <NewsCard
                 key={item.id}
                 title={item.title}
                 date={item.created}
-                content={item.content}
+                content={item.post}
               />
             );
           })}

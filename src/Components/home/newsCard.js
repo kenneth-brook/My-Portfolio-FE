@@ -1,6 +1,6 @@
 import React from "react";
 
-const newsCard = (props) => {
+const NewsCard = (props) => {
   return (
     <div>
       <h3>{props.title}</h3>
@@ -10,4 +10,4 @@ const newsCard = (props) => {
   );
 };
 
-export default newsCard;
+export default NewsCard;
