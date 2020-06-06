@@ -1,0 +1,26 @@
+.newsWrap {
+  width: 95%;
+  border-radius: 7px;
+  border: 2px solid black;
+  margin-top: 15px;
+
+  .titleHead {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+
+    h3 {
+      font-size: 1.8rem;
+      margin: 8px 0;
+    }
+  }
+
+  p {
+    font-size: 1.4rem;
+    margin: 15px 0;
+  }
+}

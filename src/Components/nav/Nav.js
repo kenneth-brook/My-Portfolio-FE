@@ -37,6 +37,11 @@ function Nav() {
               Hire-Me
             </NavLink>
           </li>
+          <li>
+            <NavLink className="link" to="/Control" activeClassName="active">
+              Control Pannel
+            </NavLink>
+          </li>
         </ul>
       </nav>
 
