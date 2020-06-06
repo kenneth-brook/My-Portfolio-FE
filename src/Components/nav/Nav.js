@@ -6,6 +6,7 @@ import Skills from "../skills/Skills";
 import Blog from "../blog/Blog";
 import Portfolio from "../portfolio/Portfolio";
 import Hire from "../hire/Hire";
+import ControlPannel from "../controlPannel/ControlPannel";
 
 function Nav() {
   return (
@@ -38,7 +39,11 @@ function Nav() {
             </NavLink>
           </li>
           <li>
-            <NavLink className="link" to="/Control" activeClassName="active">
+            <NavLink
+              className="link"
+              to="/ControlPannel"
+              activeClassName="active"
+            >
               Control Pannel
             </NavLink>
           </li>
