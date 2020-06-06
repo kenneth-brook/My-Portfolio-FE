@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 
-function ControlPannel(props) {
+function ControlPanel(props) {
   const [inputs, setInputs] = useState({
     title: "",
     post: "",
@@ -23,9 +23,11 @@ function ControlPannel(props) {
       .catch((err) => console.log(err));
   };
 
+  console.log(inputs);
+
   return (
-    <div>
-      <h1>Control Pannel</h1>
+    <div className="panelBG">
+      <h1>Control Panel</h1>
       <form onSubmit={handleSubmit}>
         <TextField id="title" label="Title" margin="normal" />
         <br />
@@ -43,4 +45,4 @@ function ControlPannel(props) {
   );
 }
 
-export default ControlPannel;
+export default ControlPanel;

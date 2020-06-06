@@ -6,7 +6,7 @@ import Skills from "../skills/Skills";
 import Blog from "../blog/Blog";
 import Portfolio from "../portfolio/Portfolio";
 import Hire from "../hire/Hire";
-import ControlPannel from "../controlPannel/ControlPannel";
+import ControlPanel from "../controlPanel/ControlPanel";
 
 function Nav() {
   return (
@@ -41,7 +41,7 @@ function Nav() {
           <li>
             <NavLink
               className="link"
-              to="/ControlPannel"
+              to="/ControlPanel"
               activeClassName="active"
             >
               Control Pannel
@@ -56,6 +56,7 @@ function Nav() {
         <Route path="/Blog" component={Blog} />
         <Route path="/Portfolio" component={Portfolio} />
         <Route path="/Hire" component={Hire} />
+        <Route path="/ControlPanel" component={ControlPanel} />
       </div>
     </div>
   );
